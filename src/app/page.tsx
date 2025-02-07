@@ -1,7 +1,10 @@
-import { redirect } from "next/navigation";
-
 const HomePage = () => {
-  return redirect("/chat");
+  return (
+
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="text-4xl font-bold">Welcome to the Solana Token Analyzer</h1>
+    </div>
+  );
 };
 
 export default HomePage;
