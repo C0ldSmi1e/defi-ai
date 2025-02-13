@@ -13,8 +13,8 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     "ignores": [
-      "components/ui/*",
-      "lib/utils.ts"
+      "src/components/ui/*",
+      "src/lib/utils.ts"
     ],
     "rules": {
       "indent": [

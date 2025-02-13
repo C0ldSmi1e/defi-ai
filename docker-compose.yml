@@ -1,0 +1,12 @@
+services:
+  defi-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: defi-ai
+    container_name: defi-ai
+    restart: unless-stopped
+    ports:
+      - "7088:3000"
+    env_file:
+      - .env.local
