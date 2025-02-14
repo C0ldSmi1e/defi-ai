@@ -100,7 +100,9 @@ const ChatPage = () => {
                   : "bg-purple-500/10 border border-purple-500/20"
             }`}
           >
-            <div className="font-mono text-sm">{msg.content}</div>
+            <pre className="font-mono text-sm whitespace-pre-wrap break-words">
+              {msg.content}
+            </pre>
           </div>
         ))}
       </div>
