@@ -56,7 +56,7 @@ const validateAndCleanJson = async (jsonString: string) => {
           content: jsonString
         }
       ],
-      temperature: 0,
+      temperature: 0.3,
       max_tokens: 2000
     });
 
@@ -79,7 +79,7 @@ const analyzeDexScreener = async (ca: string) => {
     }
 
     const response = await together.chat.completions.create({
-      model: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+      model: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-128K",
       messages: [
         {
           role: "system",
@@ -99,7 +99,7 @@ const analyzeDexScreener = async (ca: string) => {
           }
 
           Your response should be in JSON format without any other text).
-          Do NOT wrap your response in \`\`\`json\`\`\` tags.
+          You do NOT need to give any other text or markdown tags.
           `
         },
         {
@@ -107,7 +107,7 @@ const analyzeDexScreener = async (ca: string) => {
           content: result.html || ""
         }
       ],
-      temperature: 0,
+      temperature: 0.3,
       max_tokens: 2000
     });
 
