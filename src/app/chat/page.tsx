@@ -17,8 +17,9 @@ const ChatPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!prompt.trim()) return;
+    
     setIsLoading(true);
-
     const promptId = Date.now().toString();
     const responseId = (Date.now() + 1).toString();
 
@@ -40,7 +41,6 @@ const ChatPage = () => {
         throw new Error("No response body");
       }
 
-      // Add empty response message
       setMessages(prev => [...prev, { type: "response", content: "", id: responseId }]);
 
       const reader = response.body.getReader();
@@ -87,51 +87,60 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="w-full flex flex-col h-screen">
+    <div className="w-full flex flex-col h-[calc(100vh-6rem)]">
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`p-4 rounded-lg whitespace-pre-wrap font-mono ${
+            className={`p-4 rounded-xl backdrop-blur-sm transition-all ${
               msg.type === "prompt"
-                ? "bg-muted ml-auto max-w-[80%]"
+                ? "bg-blue-500/10 border border-blue-500/20 ml-auto max-w-[80%]"
                 : msg.type === "error"
-                  ? "bg-destructive/10 text-destructive"
-                  : "bg-primary/10"
+                  ? "bg-red-500/10 border border-red-500/20 text-red-400"
+                  : "bg-purple-500/10 border border-purple-500/20"
             }`}
           >
-            {msg.content}
+            <div className="font-mono text-sm">{msg.content}</div>
           </div>
         ))}
       </div>
-      <div className="sticky bottom-0 border-t p-4 bg-background">
+      
+      <div className="border-t border-gray-800 bg-gray-900/90 backdrop-blur-sm p-4 rounded-xl">
         {isLoading && (
           <div className="absolute -top-8 left-0 right-0 text-center">
-            <div className="inline-block px-3 py-1 text-sm text-muted-foreground bg-muted rounded-t-lg">
-              Analyzing token data...
+            <div className="inline-block px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
+              Processing...
             </div>
           </div>
         )}
-        <form onSubmit={handleSubmit} className="w-full flex flex-col gap-2">
+        <form 
+          onSubmit={handleSubmit} 
+          className="w-full flex flex-col gap-2"
+          autoComplete="off"
+          spellCheck="false"
+        >
           <div className="flex gap-2">
             <Input
-              className="flex-1"
-              placeholder="Enter a Solana contract address to analyze..."
+              className="flex-1 bg-gray-800/50 border-gray-700 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 text-white placeholder:text-gray-500"
+              placeholder="Enter a Solana contract address..."
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  handleSubmit(e);
-                }
-              }}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              data-form-type="other"
               disabled={isLoading}
             />
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? "Analyzing..." : "Send"}
+            <Button 
+              type="submit" 
+              disabled={isLoading || !prompt.trim()}
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoading ? "Processing..." : "Send"}
             </Button>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs text-gray-500">
             Note: We currently only support Solana CA analysis.
           </p>
         </form>
