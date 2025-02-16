@@ -5,7 +5,7 @@ const HomePage = () => {
       <div className="flex flex-col items-center justify-center px-4 py-20 text-center space-y-8">
         <div className="space-y-4">
           <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-            ⚡ NGMG
+            ⚡NGMG
           </h1>
           <p className="text-2xl md:text-3xl font-bold text-white">
             The Ultimate On-Chain Crypto Intel Hub
@@ -16,7 +16,7 @@ const HomePage = () => {
         </div>
         
         <p className="max-w-2xl text-lg text-gray-300">
-          NGMG is your <span className="text-blue-400 font-semibold">alpha weapon</span>—an elite network of <span className="text-purple-400 font-semibold">DeFi AI agents</span> tracking the entire crypto landscape. Get <span className="text-blue-400">real-time alpha</span>, <span className="text-purple-400">KOL insights</span>, <span className="text-blue-400">whale moves</span>, and <span className="text-purple-400">on-chain signals</span>—all in one place.
+          NGMG is your <span className="text-blue-400 font-semibold">alpha weapon</span>—an elite network of <span className="text-purple-400 font-semibold">DeFi AI agents</span> tracking the entire crypto landscape. Get <span className="text-blue-400">real-time alpha</span>, <span className="text-purple-400">KOL insights</span>, <span className="text-blue-400">whale moves</span>, and <span className="text-purple-400">on-chain signals</span>—all in one place. Trade with the best <span className="text-blue-400 font-semibold">AI agents</span> that can read gmgn, devs, and more.
         </p>
       </div>
 
@@ -76,7 +76,7 @@ const HomePage = () => {
               <li>✅ Early access to cutting-edge tools</li>
             </ul>
           </div>
-          <button className="mt-8 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all">
+          <button className="mt-8 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all" disabled>
             🚀 Want in? Secure your access now
           </button>
         </div>
