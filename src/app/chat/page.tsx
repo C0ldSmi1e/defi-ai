@@ -86,6 +86,97 @@ const ChatPage = () => {
     }
   };
 
+  /*
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!prompt.trim()) return;
+    
+    setIsLoading(true);
+
+    const promptId = Date.now().toString();
+    const responseId = (Date.now() + 1).toString();
+    const thinkingId = (Date.now() + 2).toString();
+
+    setMessages(prev => [...prev, { type: "prompt", content: prompt, id: promptId }]);
+    setPrompt("");
+
+    // Add initial delay of 2.5s
+    await new Promise(resolve => setTimeout(resolve, 2500));
+
+    // Add thinking message first
+    const agentThinking = `Agent Thinking:
+I began by reviewing the key metrics: CWIF has a slight 2.37% increase in the last 24 hours, but its low market cap, liquidity, and volume highlight the high-risk nature of the token. The narrative reveals that CWIF is a community-driven Solana memecoin with a deflationary twist, though it lacks a formal team or roadmap. Given your past trading patterns on SolScan—where you've successfully capitalized on small movements in similar low-liquidity assets—I’ll provide precise entry, exit, and risk management steps tailored to your profile. I’m suggesting specific limit order prices, scaling techniques, and stop-loss levels that have worked well for your previous trades in volatile tokens.`;
+
+    setMessages(prev => [...prev, { type: "response", content: "", id: thinkingId }]);
+
+    // Stream thinking message
+    for (let i = 0; i < agentThinking.length; i++) {
+      await new Promise(resolve => setTimeout(resolve, 15));
+      setMessages(prev => 
+        prev.map(msg => 
+          msg.id === thinkingId 
+            ? { ...msg, content: agentThinking.slice(0, i + 1) }
+            : msg
+        )
+      );
+    }
+
+    // Wait a bit before starting the analysis
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // Main analysis response
+    const mockResponse = `📊 CWIF | Catwifhat ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━
+💰 Price: $0.0000001296  
+📈 24h Change: 2.37%  
+💎 Market Cap: $4.0M  
+💧 Liquidity: $1.2M  
+📊 24h Volume: $15K  
+👥 Holders: 18,618
+
+🔍 ANALYSIS  
+CWIF has experienced a modest 2.37% uptick in the past 24 hours, signaling a slight bullish move. However, its low liquidity and market cap underscore a high-risk profile, making it susceptible to sudden swings. The token's narrative as a community-driven Solana memecoin with a deflationary mechanism is intriguing, though the absence of a formal team or roadmap adds uncertainty regarding long-term direction.
+
+🎯 SPECIFIC SUGGESTIONS  
+Based on your wallet's historical trading behavior, here are tailored strategies for CWIF:
+
+1. Entry Strategy:  
+   - Primary Buy: Consider placing a limit order at $0.0000001280—this represents roughly a 1.2% pullback from the current price, which has worked well for your previous low-volume entries.  
+   - Scaling In: If initial movement confirms your entry, add a second position with a limit order at $0.0000001270 to average down in case of further dips.
+
+2. Exit Strategy:  
+   - Initial Profit-Taking: Set a target to take partial profits at $0.0000001325 (about a 2.7% gain from current levels) to capture early momentum.  
+   - Secondary Target: Consider a second exit point at $0.0000001350 for an additional 4% gain, similar to exit levels you’ve utilized in prior trades.
+
+3. Risk Management:  
+   - Stop Loss: Given the token's volatility, place a stop loss at $0.0000001260 (approximately a 2.5% drop from your primary entry), aligning with your standard risk threshold for high-risk assets.  
+   - Trailing Stop: Once the price reaches the initial profit target, implement a trailing stop of 1.5% to protect gains while allowing room for further upward movement.
+
+4. Monitoring & Adjustments:  
+   - Liquidity & Volume Check: With such low trading volume, continuously monitor order book depth and recent trades to catch any signs of a sudden reversal.  
+   - Community Sentiment: Engage with community channels to stay updated on any news or shifts in sentiment, as changes here might provide early warnings for adjustments.
+
+These specific actions are calibrated to leverage small price movements while managing risk effectively, based on the trading patterns observed in your wallet history.`;
+
+    // Add initial empty response
+    setMessages(prev => [...prev, { type: "response", content: "", id: responseId }]);
+
+    // Stream main analysis
+    for (let i = 0; i < mockResponse.length; i++) {
+      await new Promise(resolve => setTimeout(resolve, 25));
+      setMessages(prev => 
+        prev.map(msg => 
+          msg.id === responseId 
+            ? { ...msg, content: mockResponse.slice(0, i + 1) }
+            : msg
+        )
+      );
+    }
+
+    setIsLoading(false);
+  };
+  */
+
   return (
     <div className="w-full flex flex-col h-[calc(100vh-6rem)]">
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -142,9 +233,11 @@ const ChatPage = () => {
               {isLoading ? "Processing..." : "Send"}
             </Button>
           </div>
+          {/*
           <p className="text-xs text-gray-500">
             Note: We currently only support Solana CA analysis.
           </p>
+          */}
         </form>
       </div>
     </div>
