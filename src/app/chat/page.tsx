@@ -233,11 +233,9 @@ These specific actions are calibrated to leverage small price movements while ma
               {isLoading ? "Processing..." : "Send"}
             </Button>
           </div>
-          {/*
           <p className="text-xs text-gray-500">
             Note: We currently only support Solana CA analysis.
           </p>
-          */}
         </form>
       </div>
     </div>
