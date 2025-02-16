@@ -20,6 +20,93 @@ const HomePage = () => {
         </p>
       </div>
 
+      {/* Demo Videos Section */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="space-y-12">
+          {/* Demo 1 - Contract Analysis */}
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
+            <div className="w-full lg:w-1/2 space-y-6">
+              <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  🔍 Smart Contract Analysis
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Watch our AI agents perform deep analysis of any contract address in real-time. Get instant insights about:
+                </p>
+                <ul className="space-y-2 text-gray-300 mb-6">
+                  <li className="flex items-center space-x-2">
+                    <span className="text-blue-400">•</span>
+                    <span>Token fundamentals and market metrics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Current market sentiment and trends</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-blue-400">•</span>
+                    <span>Personalized investment recommendations</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-700 bg-gray-900">
+                <video 
+                  className="w-full h-full object-cover"
+                  controls
+                  muted 
+                  playsInline
+                >
+                  <source src="/videos/demo1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          {/* Demo 2 - Behind the Scenes */}
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
+            <div className="w-full lg:w-1/2 space-y-6 lg:order-2">
+              <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  ⚡ Behind the Scenes
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  See how our AI agents work behind the scenes to gather intelligence:
+                </p>
+                <ul className="space-y-2 text-gray-300 mb-6">
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Real-time GMGN monitoring and analysis</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-blue-400">•</span>
+                    <span>Multi-source data aggregation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-400">•</span>
+                    <span>Intelligent signal processing</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 lg:order-1">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-700 bg-gray-900">
+                <video 
+                  className="w-full h-full object-cover"
+                  controls
+                  muted 
+                  playsInline
+                >
+                  <source src="/videos/demo2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Features Grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-8">
